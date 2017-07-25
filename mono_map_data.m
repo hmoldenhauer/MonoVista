@@ -4,6 +4,7 @@
 % data      = read in data that should be displayed
 % xDim      = dimension of the data in x
 % yDim      = dimension of the data in y
+% type      = type of measurement
 %
 
 function mono_map_data(data, xDim, yDim, type)
@@ -18,17 +19,22 @@ switch type
         for k = 1:length(data)
             integrated = [integrated;sum(data(k).YData)];
         end
+        
+        % fill the integrated data to the matrix
         for k = 1:yDim
             for n = 1:xDim
                 A(k, n) = integrated(n + (k-1) * xDim);
             end
         end
+        
     case 'integrated'
+        % fill the already integrated data into the matrix
         for k = 1:yDim
             for n = 1:xDim
                 A(k, n) = data(1).YData(n + (k-1) * xDim);
             end
         end
+        
     otherwise
     disp('not defined');
 end
