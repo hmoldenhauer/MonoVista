@@ -10,33 +10,28 @@ function mono_map_data(data, steps, xDim, yDim, type)
 
 % fill integrated data into matrix to prepare plotting
 A = zeros(yDim, xDim);
+integrated = [];
 
-switch type
+switch type    
     case 'raman'
         % simple integration of the whole data
-        integrated = [];
         for k = 1:length(data)
             % integrate and put in one vector
             integrated = [integrated;sum(data(k).YData)];
         end
         
-        % fill the integrated data to the matrix
-        for k = 1:yDim
-            for n = 1:xDim
-                A(k, n) = integrated(n + (k-1) * xDim);
-            end
-        end
-        
     case 'integrated'
-        % fill the already integrated data into the matrix
-        for k = 1:yDim
-            for n = 1:xDim
-                A(k, n) = data(1).YData(n + (k-1) * xDim);
-            end
-        end
+        integrated = data(1).YData;
         
     otherwise
     disp('not defined');
+end
+
+% fill the data to the matrix
+for k = 1:yDim
+    for n = 1:xDim
+        A(k, n) = integrated(n + (k-1) * xDim);
+    end
 end
 
 % filp up and down to be correctly oriented
