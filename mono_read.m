@@ -22,6 +22,8 @@ addpath(datafolder);                         % add to path
 switch type
     case 'raman'
         data = mono_read_raman(datafolder);
+    case 'integrated'
+        data = mono_read_integrated(datafolder);
     case 'pl'
         disp('pl');
     otherwise
