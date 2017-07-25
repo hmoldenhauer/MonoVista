@@ -4,7 +4,7 @@
 % data      = read in data that should be displayed
 % xDim      = dimension of the data in x
 % yDim      = dimension of the data in y
-% type      = type of measurement
+% type      = type of integration
 
 function mono_map_data(data, steps, xDim, yDim, type)
 
@@ -13,11 +13,18 @@ A = zeros(yDim, xDim);
 integrated = [];
 
 switch type    
-    case 'raman'
+    case 'whole'
         % simple integration of the whole data
         for k = 1:length(data)
             % integrate and put in one vector
             integrated = [integrated;sum(data(k).YData)];
+        end
+        
+    case 'part'
+        % integrate in a given range
+        for k = 1:length(data)
+            integrated = [integrated;...
+                          mono_integrate_data(data(k), 667, 50)];
         end
         
     case 'integrated'
