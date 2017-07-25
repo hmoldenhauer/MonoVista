@@ -3,7 +3,7 @@
 % INPUT
 % datafolder = folder where subfolder with the requested data file
 % columns    = number of columns of the measurement
-% type       = type of the data (*.txt, *.dat, *.csv, etc.)
+% type       = type of the data ('*.txt', '*.dat', '*.csv', etc.)
 %
 % OUTPUT
 % data      = all data from datafolder is now in this variable

@@ -4,7 +4,7 @@
 % data      = read in data that should be displayed
 % xDim      = dimension of the data in x
 % yDim      = dimension of the data in y
-% type      = type of integration
+% type      = type of integration ('whole', 'part', 'integrated')
 
 function mono_map_data(data, steps, xDim, yDim, type)
 
@@ -24,7 +24,7 @@ switch type
         % integrate in a given range
         for k = 1:length(data)
             integrated = [integrated;...
-                          mono_integrate_data(data(k), 667, 50)];
+                          mono_integrate_data(data(k), 100, 20)];
         end
         
     case 'integrated'
