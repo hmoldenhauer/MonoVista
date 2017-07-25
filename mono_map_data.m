@@ -1,11 +1,10 @@
 % function to map measured data from the MonoVista
 % 
-% VARIABLES
+% INPUT
 % data      = read in data that should be displayed
 % xDim      = dimension of the data in x
 % yDim      = dimension of the data in y
 % type      = type of measurement
-%
 
 function mono_map_data(data, steps, xDim, yDim, type)
 
