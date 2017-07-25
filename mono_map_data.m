@@ -44,7 +44,7 @@ end
 A = flipud(A);
 
 % plot the whole stuff and get all the handles
-fig = figure;
+fig = figure;       % create new figure
 im = imagesc(A);    % plot command
 ax = gca;           % get current axes to enable manipulations
 c = colorbar;       % show color scale
