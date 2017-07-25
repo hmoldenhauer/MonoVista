@@ -1,31 +1,24 @@
 % function to read data measured with the MonoVista
 % 
-% VARIABLES
+% INPUT
 % datafolder = folder where subfolder with the requested data file
-% type       = type of the measurement
+% columns    = number of columns of the measurement
+% type       = type of the data (*.txt, *.dat, *.csv, etc.)
 %
-% TYPES
-% 'raman'  - reads raman data
-%          - the data is formated in two columns
-%          - the first column is the raman shift
-%          - the second column is the measured intensity
-% 
-% 'pl'     - reads pl data
-%
+% OUTPUT
+% data      = all data from datafolder is now in this variable
 
-function data = mono_read(datafolder, type)
+function data = mono_read(datafolder, columns, type)
 
 % add datafolder and all subfolders to path in order to access all data
-addpath(datafolder);                         % add to path
+addpath(datafolder);
 
 % choose which type of data should be used
-switch type
-    case 'raman'
-        data = mono_read_raman(datafolder);
-    case 'integrated'
-        data = mono_read_integrated(datafolder);
-    case 'pl'
-        disp('pl');
+switch columns
+    case 1
+        data = mono_read_1col(datafolder, type);
+    case 2
+        data = mono_read_2col(datafolder, type);
     otherwise
         disp('not defined');
 end
