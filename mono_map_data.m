@@ -65,5 +65,5 @@ ax.LabelFontSizeMultiplier = 1;         % set font size multiplier to 1
 axis equal;     % x- and y-axis equal
 axis tight;     % set axis limits to data range
 
-c.Label.String = 'Intensität (a.u.)'    % label colorbar
+c.Label.String = 'Intensität (a.u.)';   % label colorbar
 c.FontSize = fontsize;                  % set font size
